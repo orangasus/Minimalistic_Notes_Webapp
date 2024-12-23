@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'my_app/base.html'%}
 <head>
     <meta charset="UTF-8">
     <title>MNW</title>
 </head>
 <body>
+{% block content %}
   <div>
     <h2>{{ list.list_name }}</h2>
-
     <ul>
     {% for note in list.notes_set.all %}
-        <li>
-          <h3>{{note.note_name}}</h3>
-          <p>{{note.note_text}}</p>
-        </li>
+        {% include "my_app/_note_div.html" %}
     {% endfor %}
     </ul>
       <form method="GET" action="{% url 'create_note' %}">
@@ -21,5 +17,5 @@
           <button type="submit">Add</button>
       </form>
   </div>
+{% endblock %}
 </body>
-</html>
