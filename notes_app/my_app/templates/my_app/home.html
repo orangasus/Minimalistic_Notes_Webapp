@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MNW</title>
+</head>
+<body>
+  <div>
+    <h2>{{ list.list_name }}</h2>
+
+    <ul>
+    {% for note in list.notes_set.all %}
+        <li>
+          <h3>{{note.note_name}}</h3>
+          <p>{{note.note_text}}</p>
+        </li>
+    {% endfor %}
+    </ul>
+      <form method="GET" action="{% url 'create_note' %}">
+          {% csrf_token %}
+          <button type="submit">Add</button>
+      </form>
+  </div>
+</body>
+</html>
