@@ -1,4 +1,4 @@
-{% extends 'my_app/base.html'%}
+<!--{% extends 'my_app/base.html'%}-->
 <head>
     <meta charset="UTF-8">
     <title>MNW</title>
@@ -12,10 +12,6 @@
         {% include "my_app/_note_div.html" %}
     {% endfor %}
     </ul>
-      <form method="GET" action="{% url 'create_note' %}">
-          {% csrf_token %}
-          <button type="submit">Add</button>
-      </form>
   </div>
 {% endblock %}
 </body>
