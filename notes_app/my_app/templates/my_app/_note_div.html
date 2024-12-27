@@ -12,21 +12,21 @@
     <link rel='stylesheet' href="styles.css">
   </head>
   <body>
-    <div class='container'>
-      <div class='card' style="width: 30%">
-        <div class='card-header'>orangasus</div>
-        <div class='card-body'>
-          <h3 class='card-title'>{{ note.note_name }}</h3>
-          <div class='card-text'>
-            {{ note.note_text }}
+  <div class="container">
+        <div class='card'>
+          <div class='card-header'>orangasus</div>
+          <div class='card-body' >
+            <h3 class='card-title'>{{ note.note_name }}</h3>
+            <div class='card-text overflow-auto' style="height:17vh">
+              {{ note.note_text }}
+            </div>
+          </div>
+          <div class='card-footer'>
+            <span>{{ note.date_created }}</span>
+            <span>{{ note.date_modified }}</span>
           </div>
         </div>
-        <div class='card-footer'>
-          <span>{{ note.date_created }}</span>
-          <span>{{ note.date_modified }}</span>
-        </div>
-      </div>
-    </div>
+  </div>
 
 
     <!-- Bootstrap JS -->

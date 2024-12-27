@@ -6,8 +6,10 @@ from .models import NotesList
 
 def home_view(request):
     ls = NotesList.objects.get(list_name='Test LS')
-    list_names = [x.list_name for x in NotesList.objects.all()]
-    return render(request,'my_app/home.html', {'list': ls})
+    ls_notes = ls.notes_set.all()
+
+    return render(request,'my_app/home.html',
+                  {'list':ls_notes})
 
 def create_note_view(request):
     ls = NotesList.objects.get(list_name='Test LS')

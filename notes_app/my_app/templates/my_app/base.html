@@ -1,54 +1,16 @@
-<style>
-  .sidebar
-  {
-      width: 8%;
-      height: 100%
-      min-width: 100px;
-      background-color: black;
-      position:fixed;
-  }
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-4 fixed-top">
+  <a class="navbar-brand" href="#">MNM</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  .sidebar a{
-      padding: 6px 8px 6px 16px;
-      color: white;
-      font-size:25px;
-      display:block;
-  }
-</style>
-
-<div class="sidebar">
-  {% for list in NotesList.objects.all %}
-      <a href="#">{{ list.list_name }}</a>
-  {% endfor %}
-</div>
-<style>
-  .sidebar
-  {
-      margin: 0;
-      width: 8%;
-      height: 100%;
-      min-width: 100px;
-      background-color: black;
-      position:fixed;
-  }
-
-  .sidebar a{
-      padding: 6px 8px 6px 16px;
-      color: white;
-      font-size:25px;
-  }
-
-  .main_content{
-      margin-left: 9%
-  }
-</style>
-
-<div class="sidebar">
-  {% for list_name in list_names %}
-      <a href="#">{{ list_name }}</a>
-  {% endfor %}
-</div>
-<div class="main_content">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    </form>
+  </div>
+</nav>
+<div class="main_content" style="margin-top: 70px">
   {% block content %}
             Nothing to See :)
   {% endblock %}
