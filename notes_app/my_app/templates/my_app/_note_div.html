@@ -14,7 +14,13 @@
   <body>
   <div class="container">
         <div class='card'>
-          <div class='card-header'>orangasus</div>
+          <div class='card-header'>
+            orangasus
+            <form method="POST" action="{% url 'delete_note' note.list.id note.id%}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">del</button>
+            </form>
+          </div>
           <div class='card-body' >
             <h3 class='card-title'>{{ note.note_name }}</h3>
             <div class='card-text overflow-auto' style="height:17vh">

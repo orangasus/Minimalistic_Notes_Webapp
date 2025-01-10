@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 
 from .forms import CreateNewNoteForm
-from .models import NotesList
+from .models import NotesList, Note
 
 def home_view(request):
     ls = NotesList.objects.get(list_name='Test LS')
@@ -10,6 +10,18 @@ def home_view(request):
 
     return render(request,'my_app/home.html',
                   {'list':ls_notes})
+
+def sign_up_view(request):
+    pass
+
+def login_view(request):
+    pass
+
+def delete_note_view(request, note_id, list_id):
+    if request.method == 'POST':
+        ls = NotesList.objects.get(id=list_id)
+        ls.delete_note_by_id(note_id)
+        return redirect('home')
 
 def create_note_view(request):
     ls = NotesList.objects.get(list_name='Test LS')
