@@ -20,6 +20,10 @@
               {% csrf_token %}
               <button type="submit" class="btn btn-danger">del</button>
             </form>
+            <form method="GET" action="{% url 'edit_note' note.list.id note.id%}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">edit</button>
+            </form>
           </div>
           <div class='card-body' >
             <h3 class='card-title'>{{ note.note_name }}</h3>
