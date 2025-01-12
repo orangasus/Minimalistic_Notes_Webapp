@@ -11,12 +11,6 @@ def home_view(request):
     return render(request,'my_app/home.html',
                   {'list':ls_notes})
 
-def sign_up_view(request):
-    pass
-
-def login_view(request):
-    pass
-
 def delete_note_view(request, note_id, list_id):
     if request.method == 'POST':
         ls = NotesList.objects.get(id=list_id)
