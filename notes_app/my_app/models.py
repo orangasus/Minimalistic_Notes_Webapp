@@ -1,8 +1,12 @@
 from django.db import models
-from time import time
+from django.contrib.auth.models import User
 
-# Create your models here.
+def get_default_user():
+    return 1
+
+
 class NotesList(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='lists_set', default=get_default_user)
     list_name = models.CharField(max_length=50)
     date_created = models.DateField(auto_now_add=True)
     date_modified = models.DateField(auto_now=True)

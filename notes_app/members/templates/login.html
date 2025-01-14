@@ -8,3 +8,9 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<form method="GET" action="{% url 'signup_user' %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </div>
+</form>

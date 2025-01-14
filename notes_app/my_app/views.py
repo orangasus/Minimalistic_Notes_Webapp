@@ -5,7 +5,7 @@ from .forms import CreateNewNoteForm, EditNoteForm
 from .models import NotesList, Note
 
 def home_view(request):
-    ls = NotesList.objects.get(list_name='Test LS')
+    ls = NotesList.objects.get(list_name='default')
     ls_notes = ls.notes_set.all()
 
     return render(request,'my_app/home.html',
@@ -18,7 +18,7 @@ def delete_note_view(request, note_id, list_id):
         return redirect('home')
 
 def create_note_view(request):
-    ls = NotesList.objects.get(list_name='Test LS')
+    ls = NotesList.objects.get(list_name='default')
     if request.method == 'POST':
         form = CreateNewNoteForm(request.POST)
         if form.is_valid():
